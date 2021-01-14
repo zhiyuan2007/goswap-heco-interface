@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Percent, Token, WETH } from '@unisave/unisave-heco-sdk'
+import { ChainId, JSBI, Percent, Token, WETH } from 'goswap-sdk'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
@@ -32,22 +32,29 @@ export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.BSC_MAINNET]: new Token(
-    ChainId.BSC_MAINNET,
+  [ChainId.BIANMAIN]: new Token(
+    ChainId.BIANMAIN,
     '0x12e2fcfA079Fc23aE82Ab82707b402410321103f',
     18,
     'BEST',
     'Unisave'
   ),
-  [ChainId.BSC_TESTNET]: new Token(
-    ChainId.BSC_TESTNET,
+  [ChainId.BIANTEST]: new Token(
+    ChainId.BIANTEST,
     '0x12e2fcfA079Fc23aE82Ab82707b402410321103f',
     18,
     'BEST',
     'Unisave'
   ),
-  [ChainId.HECO_TESTNET]: new Token(
-    ChainId.HECO_TESTNET,
+  [ChainId.HECOMAIN]: new Token(
+    ChainId.HECOMAIN,
+    '0xbbEeF58A63aeb9D5BC5e5792A20B81e0DE83fD14',
+    10,
+    'HT',
+    'Unisave'
+  ),
+  [ChainId.HECOTEST]: new Token(
+    ChainId.HECOTEST,
     '0xbbEeF58A63aeb9D5BC5e5792A20B81e0DE83fD14',
     10,
     'HT',
@@ -61,21 +68,21 @@ export const MERKLE_DISTRIBUTOR_ADDRESS: { [chainId in ChainId]?: string } = {
 }
 
 export const B_DAI = new Token(
-  ChainId.BSC_MAINNET,
+  ChainId.BIANMAIN,
   '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
   18,
   'DAI',
   'Dai Token'
 )
 export const BUSD = new Token(
-  ChainId.BSC_MAINNET,
+  ChainId.BIANMAIN,
   '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
   18,
   'BUSD',
   'BUSD Token'
 )
 export const B_USDT = new Token(
-  ChainId.BSC_MAINNET,
+  ChainId.BIANMAIN,
   '0x55d398326f99059fF775485246999027B3197955',
   18,
   'USDT',
@@ -83,21 +90,21 @@ export const B_USDT = new Token(
 )
 
 export const T_DAI = new Token(
-  ChainId.BSC_TESTNET,
+  ChainId.BIANTEST,
   '0xEC5dCb5Dbf4B114C9d0F65BcCAb49EC54F6A0867',
   18,
   'DAI',
   'Dai Token'
 )
 export const T_BUSD = new Token(
-  ChainId.BSC_TESTNET,
+  ChainId.BIANTEST,
   '0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee',
   6,
   'BUSD',
   'BUSD Token'
 )
 export const T_USDT = new Token(
-  ChainId.BSC_TESTNET,
+  ChainId.BIANTEST,
   '0x337610d27c682E347C9cD60BD4b3b107C9d34dDd',
   6,
   'USDT',
@@ -110,16 +117,17 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
   [ChainId.GÖRLI]: [WETH[ChainId.GÖRLI]],
   [ChainId.KOVAN]: [WETH[ChainId.KOVAN]],
-  [ChainId.BSC_MAINNET]: [WETH[ChainId.BSC_MAINNET]],
-  [ChainId.BSC_TESTNET]: [WETH[ChainId.BSC_TESTNET]],
-  [ChainId.HECO_TESTNET]: [WETH[ChainId.HECO_TESTNET]]
+  [ChainId.BIANMAIN]: [WETH[ChainId.BIANMAIN]],
+  [ChainId.BIANTEST]: [WETH[ChainId.BIANTEST]],
+  [ChainId.HECOMAIN]: [WETH[ChainId.HECOMAIN]],
+  [ChainId.HECOTEST]: [WETH[ChainId.HECOTEST]]
 }
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, COMP, MKR],
-  [ChainId.BSC_MAINNET]: [...WETH_ONLY[ChainId.BSC_MAINNET], B_DAI, BUSD, B_USDT]
+  [ChainId.BIANMAIN]: [...WETH_ONLY[ChainId.BIANMAIN], B_DAI, BUSD, B_USDT]
 }
 
 /**
@@ -136,18 +144,18 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 export const SUGGESTED_BASES: ChainTokenList = {
   ...WETH_ONLY,
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT],
-  [ChainId.BSC_MAINNET]: [...WETH_ONLY[ChainId.BSC_MAINNET], B_USDT, BUSD, B_DAI],
-  [ChainId.BSC_TESTNET]: [...WETH_ONLY[ChainId.BSC_TESTNET], T_USDT, T_BUSD, T_DAI],
-  [ChainId.HECO_TESTNET]: [...WETH_ONLY[ChainId.HECO_TESTNET]]
+  [ChainId.BIANMAIN]: [...WETH_ONLY[ChainId.BIANMAIN], B_USDT, BUSD, B_DAI],
+  [ChainId.BIANTEST]: [...WETH_ONLY[ChainId.BIANTEST], T_USDT, T_BUSD, T_DAI],
+  [ChainId.HECOTEST]: [...WETH_ONLY[ChainId.HECOTEST]]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT],
-  [ChainId.BSC_MAINNET]: [...WETH_ONLY[ChainId.BSC_MAINNET], B_USDT, BUSD, B_DAI],
-  [ChainId.BSC_TESTNET]: [...WETH_ONLY[ChainId.BSC_TESTNET], T_USDT, T_BUSD, T_DAI],
-  [ChainId.HECO_TESTNET]: [...WETH_ONLY[ChainId.HECO_TESTNET]]
+  [ChainId.BIANMAIN]: [...WETH_ONLY[ChainId.BIANMAIN], B_USDT, BUSD, B_DAI],
+  [ChainId.BIANTEST]: [...WETH_ONLY[ChainId.BIANTEST], T_USDT, T_BUSD, T_DAI],
+  [ChainId.HECOTEST]: [...WETH_ONLY[ChainId.HECOTEST]]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {

@@ -1,4 +1,4 @@
-import { ChainId } from '@unisave/unisave-heco-sdk'
+import { ChainId } from 'goswap-sdk'
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { useTranslation } from 'react-i18next'

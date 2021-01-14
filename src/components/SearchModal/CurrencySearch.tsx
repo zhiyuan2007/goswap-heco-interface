@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@unisave/unisave-heco-sdk'
+import { Currency, ETHER, Token } from 'goswap-sdk'
 import React, {
   KeyboardEvent,
   RefObject,

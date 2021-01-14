@@ -7,7 +7,7 @@ import {
   Trade,
   TradeOptionsDeadline,
   TradeType
-} from '@unisave/unisave-heco-sdk'
+} from 'goswap-sdk'
 import { getTradeVersion } from '../data/V1'
 import { Version } from '../hooks/useToggledVersion'
 

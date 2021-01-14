@@ -1,4 +1,4 @@
-import { Currency } from '@unisave/unisave-heco-sdk'
+import { Currency } from 'goswap-sdk'
 import React from 'react'
 import styled from 'styled-components'
 import CurrencyLogo from '../CurrencyLogo'

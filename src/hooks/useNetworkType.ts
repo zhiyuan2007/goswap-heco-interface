@@ -1,8 +1,8 @@
-import { ChainId } from '@unisave/unisave-heco-sdk'
+import { ChainId } from 'goswap-sdk'
 
 export const useNetworkType = (chainId?: ChainId): 'ETH' | 'BSC' | null => {
   const ethIds = [ChainId.MAINNET, ChainId.ROPSTEN, ChainId.RINKEBY, ChainId.GÖRLI, ChainId.KOVAN]
-  const bscIds = [ChainId.BSC_MAINNET, ChainId.BSC_TESTNET]
+  const bscIds = [ChainId.BIANMAIN, ChainId.BIANTEST]
   if (!chainId) return null
   if (ethIds.includes(chainId)) return 'ETH'
   if (bscIds.includes(chainId)) return 'BSC'

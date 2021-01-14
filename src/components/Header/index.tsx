@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { ChainId, TokenAmount, ETHER } from '@unisave/unisave-heco-sdk'
+import { ChainId, TokenAmount, ETHER } from 'goswap-sdk'
 import React, { useState } from 'react'
 import { Text } from 'rebass'
 import { NavLink } from 'react-router-dom'
@@ -295,8 +295,8 @@ const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.ROPSTEN]: 'Ropsten',
   [ChainId.GÖRLI]: 'Görli',
   [ChainId.KOVAN]: 'Kovan',
-  [ChainId.BSC_MAINNET]: 'BSC Mainnet',
-  [ChainId.BSC_TESTNET]: 'BSC Testnet'
+  [ChainId.BIANMAIN]: 'BSC Mainnet',
+  [ChainId.BIANTEST]: 'BSC Testnet'
 }
 
 export default function Header() {

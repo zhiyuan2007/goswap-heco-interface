@@ -1,4 +1,4 @@
-import { ChainId, Pair, Token } from '@unisave/unisave-heco-sdk'
+import { ChainId, Pair, Token } from 'goswap-sdk'
 import flatMap from 'lodash.flatmap'
 import { useCallback, useMemo } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
@@ -191,8 +191,8 @@ export function useDirectSwapToggle(): [boolean, () => void] {
  * @param tokenA one of the two tokens
  * @param tokenB the other token
  */
-export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
-  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'UNI-V2', 'Uniscam LP Token')
+export async function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Promise<Token> {
+  return new Token(tokenA.chainId, await Pair.getAddress(tokenA, tokenB), 18, 'UNI-V2', 'Uniscam LP Token')
 }
 
 /**

@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit'
-import { ChainId } from '@unisave/unisave-heco-sdk'
+import { ChainId } from 'goswap-sdk'
 
 export interface SerializableTransactionReceipt {
   to: string

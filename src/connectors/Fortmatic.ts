@@ -1,4 +1,4 @@
-import { ChainId } from '@unisave/unisave-heco-sdk'
+import { ChainId } from 'goswap-sdk'
 import { FortmaticConnector as FortmaticConnectorCore } from '@web3-react/fortmatic-connector'
 
 export const OVERLAY_READY = 'OVERLAY_READY'
@@ -9,9 +9,10 @@ type FormaticSupportedChains = Extract<
   | ChainId.ROPSTEN
   | ChainId.RINKEBY
   | ChainId.KOVAN
-  | ChainId.BSC_MAINNET
-  | ChainId.BSC_TESTNET
-  | ChainId.HECO_TESTNET
+  | ChainId.BIANMAIN
+  | ChainId.BIANTEST
+  | ChainId.HECOMAIN
+  | ChainId.HECOTEST
 >
 
 const CHAIN_ID_NETWORK_ARGUMENT: { readonly [chainId in FormaticSupportedChains]: string | undefined } = {
@@ -19,9 +20,10 @@ const CHAIN_ID_NETWORK_ARGUMENT: { readonly [chainId in FormaticSupportedChains]
   [ChainId.ROPSTEN]: 'ropsten',
   [ChainId.RINKEBY]: 'rinkeby',
   [ChainId.KOVAN]: 'kovan',
-  [ChainId.BSC_MAINNET]: 'mainnet',
-  [ChainId.BSC_TESTNET]: 'testnet',
-  [ChainId.HECO_TESTNET]: 'huobi'
+  [ChainId.BIANMAIN]: 'bian',
+  [ChainId.BIANTEST]: 'bian-test',
+  [ChainId.HECOMAIN]: 'heco',
+  [ChainId.HECOTEST]: 'heco-test'
 }
 
 export class FortmaticConnector extends FortmaticConnectorCore {

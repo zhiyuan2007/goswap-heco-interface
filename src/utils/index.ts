@@ -5,7 +5,7 @@ import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { BigNumber } from '@ethersproject/bignumber'
 import { abi as IUniswapV2Router02ABI } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { ROUTER_ADDRESS } from '../constants'
-import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, ETHER } from '@unisave/unisave-heco-sdk'
+import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, ETHER } from 'goswap-sdk'
 import { TokenAddressMap } from '../state/lists/hooks'
 
 // returns the checksummed address if the address is valid, otherwise returns false
@@ -25,6 +25,7 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   42: 'kovan.etherscan.io',
   56: 'bscscan.com',
   97: 'testnet.bscscan.com',
+  128: 'scan.hecochain.com',
   256: 'scan-testnet.hecochain.com'
 }
 

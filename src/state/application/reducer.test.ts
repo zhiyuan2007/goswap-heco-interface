@@ -1,4 +1,4 @@
-import { ChainId } from '@unisave/unisave-heco-sdk'
+import { ChainId } from 'goswap-sdk'
 import { createStore, Store } from 'redux'
 import { addPopup, ApplicationModal, removePopup, setOpenModal, updateBlockNumber } from './actions'
 import reducer, { ApplicationState } from './reducer'

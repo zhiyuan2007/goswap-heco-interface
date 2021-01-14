@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@unisave/unisave-heco-sdk'
+import { ChainId, Token } from 'goswap-sdk'
 import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
@@ -37,9 +37,10 @@ const EMPTY_LIST: TokenAddressMap = {
   [ChainId.ROPSTEN]: {},
   [ChainId.GÖRLI]: {},
   [ChainId.MAINNET]: {},
-  [ChainId.BSC_MAINNET]: {},
-  [ChainId.BSC_TESTNET]: {},
-  [ChainId.HECO_TESTNET]: {}
+  [ChainId.BIANMAIN]: {},
+  [ChainId.BIANTEST]: {},
+  [ChainId.HECOMAIN]: {},
+  [ChainId.HECOTEST]: {}
 }
 
 const listCache: WeakMap<TokenList, TokenAddressMap> | null =

@@ -10,7 +10,7 @@ import { TYPE, CloseIcon } from '../../theme'
 import { ButtonConfirmed, ButtonError } from '../Button'
 import ProgressCircles from '../ProgressSteps'
 import CurrencyInputPanel from '../CurrencyInputPanel'
-import { TokenAmount, Pair } from '@unisave/unisave-heco-sdk'
+import { TokenAmount, Pair } from 'goswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { usePairContract, useStakingContract } from '../../hooks/useContract'
@@ -43,7 +43,7 @@ interface StakingModalProps {
   userLiquidityUnstaked: TokenAmount | undefined
 }
 
-export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiquidityUnstaked }: StakingModalProps) {
+export default async function StakingModal({ isOpen, onDismiss, stakingInfo, userLiquidityUnstaked }: StakingModalProps) {
   const { account, chainId, library } = useActiveWeb3React()
   const { t } = useTranslation()
 
@@ -73,6 +73,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
 
   // pair contract for this token to be staked
   const dummyPair = new Pair(new TokenAmount(stakingInfo.tokens[0], '0'), new TokenAmount(stakingInfo.tokens[1], '0'))
+  await dummyPair.liquidityTokenAddress();
   const pairContract = usePairContract(dummyPair.liquidityToken.address)
 
   // approval data for stake
