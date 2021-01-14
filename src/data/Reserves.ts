@@ -53,8 +53,8 @@ export function usePairs(
 
   const pairAddresses = useMemo(
     () =>
-      tokens.map(async ([tokenA, tokenB]) => {
-        return tokenA && tokenB && !tokenA.equals(tokenB) ? await Pair.getAddress(tokenA, tokenB) : undefined
+      tokens.map(([tokenA, tokenB]) => {
+        return tokenA && tokenB && !tokenA.equals(tokenB) ? Pair.getAddress(tokenA, tokenB) : undefined
       }),
     [tokens]
   )
@@ -80,7 +80,7 @@ export function usePairs(
         reserve0 = reserve0.sub(dummy0)
         reserve1 = reserve1.sub(dummy1)
       }
-      
+
       return [
         PairState.EXISTS,
         new Pair(new TokenAmount(token0, reserve0.toString()), new TokenAmount(token1, reserve1.toString()))

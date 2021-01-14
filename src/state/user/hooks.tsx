@@ -191,8 +191,8 @@ export function useDirectSwapToggle(): [boolean, () => void] {
  * @param tokenA one of the two tokens
  * @param tokenB the other token
  */
-export async function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Promise<Token> {
-  return new Token(tokenA.chainId, await Pair.getAddress(tokenA, tokenB), 18, 'UNI-V2', 'Uniscam LP Token')
+export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
+  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'GLP:' + tokenA.symbol + '-' + tokenA.symbol, 'GoSwap LP Token')
 }
 
 /**

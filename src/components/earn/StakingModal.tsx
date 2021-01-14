@@ -43,7 +43,7 @@ interface StakingModalProps {
   userLiquidityUnstaked: TokenAmount | undefined
 }
 
-export default async function StakingModal({ isOpen, onDismiss, stakingInfo, userLiquidityUnstaked }: StakingModalProps) {
+export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiquidityUnstaked }: StakingModalProps) {
   const { account, chainId, library } = useActiveWeb3React()
   const { t } = useTranslation()
 
@@ -73,7 +73,6 @@ export default async function StakingModal({ isOpen, onDismiss, stakingInfo, use
 
   // pair contract for this token to be staked
   const dummyPair = new Pair(new TokenAmount(stakingInfo.tokens[0], '0'), new TokenAmount(stakingInfo.tokens[1], '0'))
-  await dummyPair.liquidityTokenAddress();
   const pairContract = usePairContract(dummyPair.liquidityToken.address)
 
   // approval data for stake
