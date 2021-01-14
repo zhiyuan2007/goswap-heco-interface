@@ -189,7 +189,7 @@ export function useSingleContractMultipleData(
 }
 
 export function useMultipleContractSingleData(
-  addresses: (string | undefined)[],
+  addresses: (Promise<string | undefined>)[],
   contractInterface: Interface,
   methodName: string,
   callInputs?: OptionalMethodInputs,
