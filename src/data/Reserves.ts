@@ -1,33 +1,13 @@
 import { TokenAmount, Pair, Currency } from 'goswap-sdk'
 import { useMemo } from 'react'
-import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
+import { abi as IGoSwapPair } from 'goswap-core/build/contracts/IGoSwapPair.json'
 import { Interface } from '@ethersproject/abi'
 import { useActiveWeb3React } from '../hooks'
 
 import { useMultipleContractSingleData } from '../state/multicall/hooks'
 import { wrappedCurrency } from '../utils/wrappedCurrency'
 
-const newABI = [
-  {
-    inputs: [],
-    name: 'getDummy',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: '_dummy0',
-        type: 'uint256'
-      },
-      {
-        internalType: 'uint256',
-        name: '_dummy1',
-        type: 'uint256'
-      }
-    ],
-    stateMutability: 'view',
-    type: 'function'
-  }
-]
-const PAIR_INTERFACE = new Interface([...IUniswapV2PairABI, ...newABI])
+const PAIR_INTERFACE = new Interface([...IGoSwapPair])
 
 export enum PairState {
   LOADING,
@@ -59,6 +39,7 @@ export function usePairs(
     [tokens]
   )
 
+  
   const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
   const dummyResults = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getDummy')
 

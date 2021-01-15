@@ -15,6 +15,7 @@ function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
 
   const bases: Token[] = chainId ? BASES_TO_CHECK_TRADES_AGAINST[chainId] : []
 
+
   const [tokenA, tokenB] = chainId
     ? [wrappedCurrency(currencyA, chainId), wrappedCurrency(currencyB, chainId)]
     : [undefined, undefined]
@@ -45,6 +46,7 @@ function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
               .filter((tokens): tokens is [Token, Token] => Boolean(tokens[0] && tokens[1]))
               .filter(([t0, t1]) => t0.address !== t1.address)
               .filter(([tokenA, tokenB]) => {
+              
                 if (!chainId) return true
                 const customBases = CUSTOM_BASES[chainId]
                 if (!customBases) return true
@@ -64,7 +66,6 @@ function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
   )
 
   const allPairs = usePairs(allPairCombinations)
-
   // only pass along valid pairs, non-duplicated pairs
   return useMemo(
     () =>
