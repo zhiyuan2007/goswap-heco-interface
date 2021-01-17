@@ -291,7 +291,7 @@ export default function FullPositionCard({ pair, border }: PositionCardProps) {
             <ButtonSecondary padding="8px" borderRadius="8px">
               <ExternalLink
                 style={{ width: '100%', textAlign: 'center' }}
-                href={`https://info.y3d.finance/account/${pair.liquidityToken}`}
+                href={`https://info.y3d.finance/account/${pair.liquidityToken.address}`}
               >
                 {t('viewAccruedFeesAndAnalytics')}
                 <span style={{ fontSize: '11px' }}>↗</span>
