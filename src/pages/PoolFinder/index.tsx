@@ -92,19 +92,19 @@ export default function PoolFinder() {
           {currency0 ? (
             <Row>
               <CurrencyLogo currency={currency0} />
-              <Text fontWeight={500} fontSize={20} marginLeft={'12px'} style={{ color: '#fff' }}>
+              <Text fontWeight={500} fontSize={20} marginLeft={'12px'}>
                 {currency0 === ETHER ? currency0.toDisplayableSymbol(chainId!) : currency0.symbol}
               </Text>
             </Row>
           ) : (
-            <Text fontWeight={500} fontSize={20} marginLeft={'12px'} style={{ color: '#fff' }}>
+            <Text fontWeight={500} fontSize={20} marginLeft={'12px'}>
               {t('selectAToken')}
             </Text>
           )}
         </ButtonDropdownLight>
 
         <ColumnCenter>
-          <Plus size="16" color="#fff" />
+          <Plus size="16" />
         </ColumnCenter>
 
         <ButtonDropdownLight
@@ -116,12 +116,12 @@ export default function PoolFinder() {
           {currency1 ? (
             <Row>
               <CurrencyLogo currency={currency1} />
-              <Text fontWeight={500} fontSize={20} marginLeft={'12px'} style={{ color: '#fff' }}>
+              <Text fontWeight={500} fontSize={20} marginLeft={'12px'}>
                 {currency1 === ETHER ? currency1.toDisplayableSymbol(chainId!) : currency1.symbol}
               </Text>
             </Row>
           ) : (
-            <Text fontWeight={500} fontSize={20} marginLeft={'12px'} style={{ color: '#fff' }}>
+            <Text fontWeight={500} fontSize={20} marginLeft={'12px'}>
               {t('selectAToken')}
             </Text>
           )}

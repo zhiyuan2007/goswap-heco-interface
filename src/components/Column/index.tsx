@@ -8,6 +8,7 @@ const Column = styled.div`
 export const ColumnCenter = styled(Column)`
   width: 100%;
   align-items: center;
+  color: ${({ theme }) => theme.text1};
 `
 
 export const AutoColumn = styled.div<{
