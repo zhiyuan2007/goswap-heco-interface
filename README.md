@@ -1,7 +1,7 @@
 ## Development
 
 ### Demo
-[BSC/Testnet + Mainnet](https://swap.y3d.finance/#/swap)
+[Heco/Testnet + Mainnet](https://cuimianteam.github.io/)
 
 ### Install Dependencies
 
