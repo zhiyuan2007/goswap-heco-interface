@@ -108,7 +108,7 @@ export default function Menu() {
             <Info size={14} />
             About
           </MenuItem>
-          <MenuItem id="link" href="https://unisave.gitbook.io/unisave-doc/">
+          <MenuItem id="link" href="https://goswapio.gitbook.io/goswap-docs/">
             <BookOpen size={14} />
             Docs
           </MenuItem>
@@ -116,11 +116,11 @@ export default function Menu() {
             <GitHub size={14} />
             Github
           </MenuItem>
-          <MenuItem id="link" href="https://twitter.com/UnisaveProtocol">
+          <MenuItem id="link" href="https://twitter.com/GoSwapio">
             <Twitter size={14} />
             Twitter
           </MenuItem>
-          <MenuItem id="link" href="https://t.me/y3dScam">
+          <MenuItem id="link" href="https://t.me/Goswapio">
             <Navigation size={14} />
             Telegram
           </MenuItem>
