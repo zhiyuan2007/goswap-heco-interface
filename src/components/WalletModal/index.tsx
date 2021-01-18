@@ -354,7 +354,7 @@ export default function WalletModal({
           {walletView !== WALLET_VIEWS.PENDING && (
             <Blurb>
               <span>{t('new-to-binance-smart-chain')} &nbsp;</span>{' '}
-              <ExternalLink href="https://docs.binance.org/smart-chain/wallet/metamask.html">
+              <ExternalLink href="https://docs.hecochain.com/#/wallet?id=%e4%b8%bb%e7%bd%91">
                 {t('learnMoreAboutWallets')}
               </ExternalLink>
             </Blurb>
